@@ -119,6 +119,7 @@
             this.buttonDeleteAll.Text = "Obrisi sve stavke";
             this.buttonDeleteAll.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDeleteAll.UseVisualStyleBackColor = true;
+            this.buttonDeleteAll.Click += new System.EventHandler(this.deleteAll);
             // 
             // buttonDelete
             // 
@@ -131,6 +132,7 @@
             this.buttonDelete.Text = "Obrisi oznacenu stavku";
             this.buttonDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.delete);
             // 
             // buttonAdd
             // 
@@ -163,12 +165,15 @@
             // 
             // listViewWish
             // 
+            this.listViewWish.Activation = System.Windows.Forms.ItemActivation.OneClick;
             this.listViewWish.HideSelection = false;
+            this.listViewWish.HoverSelection = true;
             this.listViewWish.Location = new System.Drawing.Point(247, 88);
             this.listViewWish.Name = "listViewWish";
             this.listViewWish.Size = new System.Drawing.Size(205, 178);
             this.listViewWish.TabIndex = 6;
             this.listViewWish.UseCompatibleStateImageBehavior = false;
+            this.listViewWish.View = System.Windows.Forms.View.List;
             // 
             // timer1
             // 
