@@ -56,7 +56,7 @@
             this.textBoxUsername.Location = new System.Drawing.Point(242, 111);
             this.textBoxUsername.Name = "textBoxUsername";
             this.textBoxUsername.Size = new System.Drawing.Size(134, 20);
-            this.textBoxUsername.TabIndex = 1;
+            this.textBoxUsername.TabIndex = 0;
             // 
             // textBoxPassword
             // 
@@ -90,7 +90,7 @@
             this.buttonLogIn.Location = new System.Drawing.Point(164, 229);
             this.buttonLogIn.Name = "buttonLogIn";
             this.buttonLogIn.Size = new System.Drawing.Size(117, 41);
-            this.buttonLogIn.TabIndex = 6;
+            this.buttonLogIn.TabIndex = 2;
             this.buttonLogIn.Text = "Prijavi se";
             this.buttonLogIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonLogIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -104,7 +104,7 @@
             this.buttonExit.Location = new System.Drawing.Point(294, 229);
             this.buttonExit.Name = "buttonExit";
             this.buttonExit.Size = new System.Drawing.Size(117, 41);
-            this.buttonExit.TabIndex = 6;
+            this.buttonExit.TabIndex = 4;
             this.buttonExit.Text = "Izlaz";
             this.buttonExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonExit.UseVisualStyleBackColor = true;
@@ -126,7 +126,7 @@
             this.buttonShowPassword.Location = new System.Drawing.Point(383, 163);
             this.buttonShowPassword.Name = "buttonShowPassword";
             this.buttonShowPassword.Size = new System.Drawing.Size(28, 20);
-            this.buttonShowPassword.TabIndex = 2;
+            this.buttonShowPassword.TabIndex = 5;
             this.buttonShowPassword.UseVisualStyleBackColor = true;
             this.buttonShowPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPassword);
             this.buttonShowPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.hidePassword);

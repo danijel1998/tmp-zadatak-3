@@ -49,7 +49,7 @@ namespace zadatak3
         {
             this.dateAndTime.Text = DateTime.Now.ToString();
             this.buttonDeleteAll.Enabled = !(listViewWish.Items.Count == 0);
-            this.buttonDelete.Enabled = !(listViewWish.Items.Count == 0);
+            this.buttonDelete.Enabled = !(listViewWish.Items.Count == 0) && !(listViewWish.SelectedItems.Count ==0);
             this.buttonAdd.Enabled = !(textBoxWish.Text == "");
         }
 

@@ -16,6 +16,7 @@ namespace zadatak3
         public LoginForm()
         {
             InitializeComponent();
+            textBoxUsername.Focus();
         }
 
         private void showPassword(object sender, MouseEventArgs e)
