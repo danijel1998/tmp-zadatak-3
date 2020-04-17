@@ -1,6 +1,6 @@
 ﻿namespace zadatak3
 {
-    partial class Form1
+    partial class LoginForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxUsername = new System.Windows.Forms.TextBox();
             this.textBoxPassword = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.buttonExit = new System.Windows.Forms.Button();
             this.buttonLogIn = new System.Windows.Forms.Button();
+            this.buttonExit = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonShowPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -62,6 +62,7 @@
             // 
             this.textBoxPassword.Location = new System.Drawing.Point(242, 163);
             this.textBoxPassword.Name = "textBoxPassword";
+            this.textBoxPassword.PasswordChar = '*';
             this.textBoxPassword.Size = new System.Drawing.Size(134, 20);
             this.textBoxPassword.TabIndex = 1;
             // 
@@ -73,7 +74,6 @@
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 4;
             this.label3.Text = "Lozinka";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // label4
             // 
@@ -83,18 +83,6 @@
             this.label4.Size = new System.Drawing.Size(75, 13);
             this.label4.TabIndex = 4;
             this.label4.Text = "Korisnicko ime";
-            // 
-            // buttonExit
-            // 
-            this.buttonExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.buttonExit.Image = global::zadatak3.Properties.Resources.Sign_Shutdown_icon;
-            this.buttonExit.Location = new System.Drawing.Point(294, 229);
-            this.buttonExit.Name = "buttonExit";
-            this.buttonExit.Size = new System.Drawing.Size(117, 41);
-            this.buttonExit.TabIndex = 6;
-            this.buttonExit.Text = "Izlaz";
-            this.buttonExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.buttonExit.UseVisualStyleBackColor = true;
             // 
             // buttonLogIn
             // 
@@ -107,6 +95,20 @@
             this.buttonLogIn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonLogIn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.buttonLogIn.UseVisualStyleBackColor = true;
+            this.buttonLogIn.Click += new System.EventHandler(this.login);
+            // 
+            // buttonExit
+            // 
+            this.buttonExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.buttonExit.Image = global::zadatak3.Properties.Resources.Sign_Shutdown_icon;
+            this.buttonExit.Location = new System.Drawing.Point(294, 229);
+            this.buttonExit.Name = "buttonExit";
+            this.buttonExit.Size = new System.Drawing.Size(117, 41);
+            this.buttonExit.TabIndex = 6;
+            this.buttonExit.Text = "Izlaz";
+            this.buttonExit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.exit);
             // 
             // pictureBox1
             // 
@@ -126,8 +128,10 @@
             this.buttonShowPassword.Size = new System.Drawing.Size(28, 20);
             this.buttonShowPassword.TabIndex = 2;
             this.buttonShowPassword.UseVisualStyleBackColor = true;
+            this.buttonShowPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPassword);
+            this.buttonShowPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.hidePassword);
             // 
-            // Form1
+            // LoginForm
             // 
             this.AcceptButton = this.buttonLogIn;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -148,7 +152,7 @@
             this.MaximumSize = new System.Drawing.Size(439, 333);
             this.MinimizeBox = false;
             this.MinimumSize = new System.Drawing.Size(439, 333);
-            this.Name = "Form1";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Prijava na sistem";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
