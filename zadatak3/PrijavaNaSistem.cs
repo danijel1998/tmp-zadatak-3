@@ -35,8 +35,12 @@ namespace zadatak3
             {
                 this.Hide();
                 WishListForm form = new WishListForm();
-                form.Show();
-                
+                DialogResult result = form.ShowDialog();
+                if (result == DialogResult.OK) 
+                    this.Show();
+                else 
+                    this.Close();
+
             }
             else
             {

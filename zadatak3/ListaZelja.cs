@@ -16,7 +16,7 @@ namespace zadatak3
         {
             InitializeComponent();
             this.dateAndTime.Text = DateTime.Now.ToString();
-            numberOfWishes.Text = "Broj stavki: " + listViewWish.Items.Count;
+            changeNumberOfListItems();
             this.buttonDeleteAll.Enabled = false;
             this.buttonDelete.Enabled = false;
             this.buttonAdd.Enabled = false;
@@ -25,14 +25,12 @@ namespace zadatak3
 
         private void logOut(object sender, EventArgs e)
         {
-            LoginForm form = new LoginForm();
-            form.Show();
-            this.Close();
+            this.DialogResult = DialogResult.OK;
         }
 
         private void exit(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.DialogResult = DialogResult.Cancel;
         }
 
         private void addWish(object sender, EventArgs e)
@@ -40,17 +38,17 @@ namespace zadatak3
             if (!(textBoxWish.Text == ""))
             {
                 listViewWish.Items.Add(this.textBoxWish.Text);
-                numberOfWishes.Text = "Broj stavki: " + listViewWish.Items.Count;
+                changeNumberOfListItems();
                 textBoxWish.Focus();
+                textBoxWish.Text = "";
+                this.buttonDeleteAll.Enabled = true;
+              
             }
         }
 
         private void showTime(object sender, EventArgs e)
         {
             this.dateAndTime.Text = DateTime.Now.ToString();
-            this.buttonDeleteAll.Enabled = !(listViewWish.Items.Count == 0);
-            this.buttonDelete.Enabled = !(listViewWish.Items.Count == 0) && !(listViewWish.SelectedItems.Count ==0);
-            this.buttonAdd.Enabled = !(textBoxWish.Text == "");
         }
 
         private void delete(object sender, EventArgs e)
@@ -59,17 +57,36 @@ namespace zadatak3
             {
                 listViewWish.Items.Remove(eachItem);
             }
-            numberOfWishes.Text = "Broj stavki: " + listViewWish.Items.Count;
+            changeNumberOfListItems();
+            this.buttonDeleteAll.Enabled = listViewWish.Items.Count > 0;
+
+
         }
 
         private void deleteAll(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Da li ste sigurni da zelite obrisati sve stavke?","Obrisi sve",MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
-            if (result.ToString() == "Yes")
+            if (result == DialogResult.Yes)
             {
                 listViewWish.Items.Clear();
-                numberOfWishes.Text = "Broj stavki: " + listViewWish.Items.Count;
+                changeNumberOfListItems();
+                this.buttonDelete.Enabled = this.buttonDeleteAll.Enabled = false;
             }
+        }
+
+        private void changeNumberOfListItems()
+        {
+            numberOfWishes.Text = "Broj stavki: " + listViewWish.Items.Count;
+        }
+
+        private void textBoxWish_TextChanged(object sender, EventArgs e)
+        {
+            buttonAdd.Enabled = textBoxWish.Text.Length > 0;
+        }
+
+        private void listViewWish_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.buttonDelete.Enabled = this.listViewWish.SelectedItems.Count > 0;
         }
     }
 }

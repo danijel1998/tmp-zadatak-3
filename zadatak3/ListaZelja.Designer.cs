@@ -32,20 +32,20 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WishListForm));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.meniToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.odjavaSaSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.izlazIzSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.textBoxWish = new System.Windows.Forms.TextBox();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.toolStripDateAndTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.dateAndTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.numberOfWishes = new System.Windows.Forms.ToolStripStatusLabel();
             this.buttonDeleteAll = new System.Windows.Forms.Button();
             this.buttonDelete = new System.Windows.Forms.Button();
             this.buttonAdd = new System.Windows.Forms.Button();
-            this.odjavaSaSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.izlazIzSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listViewWish = new System.Windows.Forms.ListView();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.dateAndTime = new System.Windows.Forms.ToolStripStatusLabel();
-            this.numberOfWishes = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -70,10 +70,26 @@
             this.meniToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
             this.meniToolStripMenuItem.Text = "Meni";
             // 
+            // odjavaSaSistemaToolStripMenuItem
+            // 
+            this.odjavaSaSistemaToolStripMenuItem.Image = global::zadatak3.Properties.Resources.logout;
+            this.odjavaSaSistemaToolStripMenuItem.Name = "odjavaSaSistemaToolStripMenuItem";
+            this.odjavaSaSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.odjavaSaSistemaToolStripMenuItem.Text = "Odjava sa sistema";
+            this.odjavaSaSistemaToolStripMenuItem.Click += new System.EventHandler(this.logOut);
+            // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(177, 6);
+            // 
+            // izlazIzSistemaToolStripMenuItem
+            // 
+            this.izlazIzSistemaToolStripMenuItem.Image = global::zadatak3.Properties.Resources.Sign_Shutdown_icon1;
+            this.izlazIzSistemaToolStripMenuItem.Name = "izlazIzSistemaToolStripMenuItem";
+            this.izlazIzSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.izlazIzSistemaToolStripMenuItem.Text = "Izlaz iz sistema";
+            this.izlazIzSistemaToolStripMenuItem.Click += new System.EventHandler(this.exit);
             // 
             // label1
             // 
@@ -90,6 +106,7 @@
             this.textBoxWish.Name = "textBoxWish";
             this.textBoxWish.Size = new System.Drawing.Size(199, 20);
             this.textBoxWish.TabIndex = 3;
+            this.textBoxWish.TextChanged += new System.EventHandler(this.textBoxWish_TextChanged);
             // 
             // statusStrip1
             // 
@@ -107,6 +124,17 @@
             // 
             this.toolStripDateAndTime.Name = "toolStripDateAndTime";
             this.toolStripDateAndTime.Size = new System.Drawing.Size(0, 17);
+            // 
+            // dateAndTime
+            // 
+            this.dateAndTime.Name = "dateAndTime";
+            this.dateAndTime.Size = new System.Drawing.Size(0, 17);
+            // 
+            // numberOfWishes
+            // 
+            this.numberOfWishes.Name = "numberOfWishes";
+            this.numberOfWishes.Size = new System.Drawing.Size(64, 17);
+            this.numberOfWishes.Text = "Broj stavki:";
             // 
             // buttonDeleteAll
             // 
@@ -147,22 +175,6 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.addWish);
             // 
-            // odjavaSaSistemaToolStripMenuItem
-            // 
-            this.odjavaSaSistemaToolStripMenuItem.Image = global::zadatak3.Properties.Resources.logout;
-            this.odjavaSaSistemaToolStripMenuItem.Name = "odjavaSaSistemaToolStripMenuItem";
-            this.odjavaSaSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.odjavaSaSistemaToolStripMenuItem.Text = "Odjava sa sistema";
-            this.odjavaSaSistemaToolStripMenuItem.Click += new System.EventHandler(this.logOut);
-            // 
-            // izlazIzSistemaToolStripMenuItem
-            // 
-            this.izlazIzSistemaToolStripMenuItem.Image = global::zadatak3.Properties.Resources.Sign_Shutdown_icon1;
-            this.izlazIzSistemaToolStripMenuItem.Name = "izlazIzSistemaToolStripMenuItem";
-            this.izlazIzSistemaToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.izlazIzSistemaToolStripMenuItem.Text = "Izlaz iz sistema";
-            this.izlazIzSistemaToolStripMenuItem.Click += new System.EventHandler(this.exit);
-            // 
             // listViewWish
             // 
             this.listViewWish.Activation = System.Windows.Forms.ItemActivation.OneClick;
@@ -174,23 +186,13 @@
             this.listViewWish.TabIndex = 6;
             this.listViewWish.UseCompatibleStateImageBehavior = false;
             this.listViewWish.View = System.Windows.Forms.View.List;
+            this.listViewWish.SelectedIndexChanged += new System.EventHandler(this.listViewWish_SelectedIndexChanged);
             // 
             // timer1
             // 
             this.timer1.Enabled = true;
             this.timer1.Interval = 1000;
             this.timer1.Tick += new System.EventHandler(this.showTime);
-            // 
-            // dateAndTime
-            // 
-            this.dateAndTime.Name = "dateAndTime";
-            this.dateAndTime.Size = new System.Drawing.Size(0, 17);
-            // 
-            // numberOfWishes
-            // 
-            this.numberOfWishes.Name = "numberOfWishes";
-            this.numberOfWishes.Size = new System.Drawing.Size(64, 17);
-            this.numberOfWishes.Text = "Broj stavki:";
             // 
             // WishListForm
             // 
